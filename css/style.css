@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #DEE1E7;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+/* Tamanho Do Container */
+.container{  
+    display: grid;   /* divisão de tela */
+    grid-template-columns: 1fr 1.17fr;
+    grid-template-areas: 
+        "login-area capa-area";
+    background-color: #FFFFFF;
+}
+
+/* Posição Do Container */
+.container{
+    border-radius: 16px;
+    width: 62vw;
+    height: auto;
+}
+
+/* Espaçamentos do campo esquerdo */
+.login{
+    display: grid;
+    grid-area: login-area;
+    margin: 2vh 1vw 0 1vw;
+}

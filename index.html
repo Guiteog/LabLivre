@@ -3,41 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
     <title>Entrar</title>
 </head>
 <body>
     <main>
         <div class="container">
-            <div class="container-main">
-                
-                <div class="login">
-                    <header><img src="./img/logo.png" alt="Logo"></header>
+            <div class="login">
 
-                    <!-- Conteudo para entrar no site -->
-                    <div class="main-login">
+                <!-- Logo do SENAI -->
+                <header><img src="./img/logo.png" alt="Logo"></header>
 
-                        <!-- Textos Top -->
-                        <div class="text">
-                            <h1>LabLivre SENAI</h1>
-                            <h2>Seu Laboratório de Conhecimento Aberto</h2>
+                <!-- Conteudo para entrar no site -->
+                <div class="main-login">
+
+                    <!-- Textos Top -->
+                    <div class="text">
+                        <h1>LabLivre SENAI</h1>
+                        <h2>Seu Laboratório de Conhecimento Aberto</h2>
+                    </div>
+
+                    <!-- Log-in && Log-up !Vai Mudar! --> 
+                    <div class="btn-type">
+                        <div class="btn-space">
+                            <div class="btn-login"><input type="button" value="Log-in"></div>
+                            <div class="btn-logup"><input type="button" value="Log-up"></div>
                         </div>
+                    </div>
 
-                        <!-- Log-in && Log-up -->
-                        <div class="btn-type">
-                            <div class="btn-alterna">
-                                <div class="btn-login"><input type="button" value="Log-in"></div>
-                                <div class="btn-logup"><input type="button" value="Log-up"></div>
+                    <!-- E-mail -->
+                    <div class="container-Email">
+                        <div class="main-camp">
+                            
+                            <!-- SVG E-mail -->
+                            <div class="svg-email">
+                                <img src="./img/e-mail.svg" alt="E-mail">
                             </div>
-                        </div>
+                            
+                            <!-- Campo do E-mail -->
+                            <div class="form-email">
+                                <p>E-mail</p>
+                                <input type="email" placeholder="example@senai.org.br">
+                            </div>
 
-                    </div>                   
-                </div>
+                        </div>
+                    </div>
+
+                </div>                             
+            </div>    
                 
-                <!-- Capa lado da direita -->
-                <div class="capa">
-                    <img src="./img/capa.png" alt="Capa">
-                </div>
-            </div>
+
+        
+            <!-- Capa lado da direita -->
+            <div class="capa">
+                    <img src="./img/capa.png" alt="Capa" style="height: 100%; width: 100%; border-radius: 16px; grid-area: capa-area;">
+            </div>  
         </div>
     </main>
 </body>
