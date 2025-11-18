@@ -1,6 +1,6 @@
 //---Bibliotecas e funcionamentos---
 const express = require("express");
-const sqlite = require("sqlite3").verbose;
+const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
 const app = express();
 
@@ -19,14 +19,14 @@ const cursoDB = require('../Modulos/cursoDb');
 const keyStrangerDB = require('../Modulos/keyStrangerFuncDb');
 
 const creaTabl = [
-    salasDB.createTableSalas,
-    funcionarioDB.createTableFuncionarios,
+    salasDB.creatTableSalas,
+    funcionarioDB.creatTableFuncionarios,
     cursoDB.creaTableCursos,
     keyStrangerDB.creaTable
 ]
 
 function creaTableDb(db,index=0){
-    if(index >= tableCreationSequence.length){
+    if(index >= creaTabl.length){
         app.listen(porta, () => {
         });
         return;
@@ -41,3 +41,13 @@ function creaTableDb(db,index=0){
         creaTableDb(db, index + 1);
     });  
 }
+
+
+const db = new sqlite3.Database("../labLivreDb.db", sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) =>{
+    if(err){
+        process.exit(1);
+    } else{
+        dbConnected = true;
+        creaTableDb(db);
+    }
+});
