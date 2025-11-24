@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^5.1.0",
+    "nodemailer": "^7.0.10",
     "sqlite3": "^5.1.7"
   }
 }
