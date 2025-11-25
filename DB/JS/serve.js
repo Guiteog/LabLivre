@@ -27,13 +27,13 @@ const db = new sqlite3.Database("../labLivreDb.db", sqlite3.OPEN_READWRITE | sql
 
 //Modulos
 const salasDB = require('../Modulos/sala');
-const funcionarioDB = require('../Modulos/funcionario');
+const usuarioDB = require('../Modulos/usuario');
 const cursoDB = require('../Modulos/curso');
 const reserva = require('../Modulos/reserva');
 
 const creaTabl = [
     salasDB.creatTableSalas,
-    funcionarioDB.creatTableFuncionarios,
+    usuarioDB.creatTableusuarios,
     cursoDB.creaTableCursos,
     reserva.creaTable
 ]
@@ -59,15 +59,3 @@ function creaTableDb(db,index=0){
 
 
 /*=========Primeira Parte Login==========*/
-
-
-app.post('/login', (req, res) => {
-    const {email} = req.body;
-    funcionarioDB.getFuncionarioByEmail(db, email, (err, funcionario) =>{
-        if(!funcionario){
-            return res.status(401).json({ error: "Email incorretos." });
-        }
-
-        email_2FA.send2FACode(funcionario.email, code2FA)
-    })
-})
