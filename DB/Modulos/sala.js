@@ -1,8 +1,6 @@
 /*Frameworks*/
 const sqlite3 = require("sqlite3"); 
 
-const table = "Sala";
-
 /* 
 -- -----------------------------------------------------
 -- Table `mydb`.`Salas`
@@ -11,9 +9,9 @@ const table = "Sala";
 
 
 /*---Criar tabelas---*/
-function criarTable(db, callback){
+function creatTable(db, callback){
     const sql = `
-        CREATE TABLE IF NOT EXISTS ${TABLE_NAME} (
+        CREATE TABLE IF NOT EXISTS Sala (
             id_sala INTEGER PRIMARY KEY AUTOINCREMENT,
             nome_sala TEXT UNIQUE NOT NULL
         );
@@ -27,12 +25,12 @@ function criarTable(db, callback){
 
 function listarSala(){
     const sql = `
-        SELECT id_sala, nome_sala FROM ${table} ORDER BY NAME
+        SELECT id_sala, nome_sala FROM Sala ORDER BY NAME
     `
     db.all(sql, [], callback)
 }
 
 module.exports(
-    criarTable,
+    creatTable,
     listarSala
 )

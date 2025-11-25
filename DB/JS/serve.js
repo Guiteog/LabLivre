@@ -14,7 +14,7 @@ app.use(cors());
 
 
 //=======Modulos=========
-const email_2FA = require('../Modulos/2FA');
+const email_2FA = require('../Modulos/ModuloUsuario/2FA');
 
 const db = new sqlite3.Database("../labLivreDb.db", sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) =>{
     if(err){
@@ -32,10 +32,10 @@ const cursoDB = require('../Modulos/curso');
 const reserva = require('../Modulos/reserva');
 
 const creaTabl = [
-    salasDB.creatTableSalas,
-    usuarioDB.creatTableusuarios,
-    cursoDB.creaTableCursos,
-    reserva.creaTable
+    salasDB.creatTable,
+    usuarioDB.creatTable,
+    cursoDB.creatTable,
+    reserva.creatTable
 ]
 
 function creaTableDb(db,index=0){
@@ -59,3 +59,23 @@ function creaTableDb(db,index=0){
 
 
 /*=========Primeira Parte Login==========*/
+app.post('/login',(err, user => {
+    const {email} = user.body;
+    if(!email){
+        return res.status(400).json({ status: null });
+    }
+
+    usuarioDB.getUser(db, email,(err, user) =>{
+        if(err){
+            return res.status(500).json({ status: err });
+        }
+
+        if(!user){
+            return res.status(401).json({ status: null});
+        }
+
+        //=============2FA=============//
+
+    })
+
+}))

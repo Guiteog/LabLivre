@@ -11,9 +11,9 @@ const table = "curso";
 
 
 /*---Criar tabelas---*/
-function criarSala(db, callback) {
+function creatTable(db, callback) {
     const sql = `
-        CREATE TABLE IF NOT EXISTS ${table} (
+        CREATE TABLE IF NOT EXISTS curso (
             id_curso INTEGER PRIMARY KEY AUTOINCREMENT,
             nome_curso TEXT UNIQUE NOT NULL,
             periodo TEXT,
@@ -28,12 +28,12 @@ function criarSala(db, callback) {
 
 function listarCurso(){
     const sql = `
-        SELECT id_curso, nome_curso FROM ${table} ORDER BY NAME
+        SELECT id_curso, nome_curso FROM curso ORDER BY NAME
     `
     db.all(sql, [], callback)
 }
 
 module.exports(
-    criarSala,
+    creatTable,
     listarCurso
 )

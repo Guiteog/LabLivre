@@ -1,27 +1,18 @@
-// ./Modulos/emailService.js
+
 
 const nodemailer = require('nodemailer');
 
-// --- ⚠️ CONFIGURAÇÃO DO TRANSPORTER (ETHEREAL) ⚠️ ---
-// ESTE SERVIÇO É 100% GRATUITO PARA TESTES.
-// 1. Acesse: https://ethereal.email/
-// 2. Crie uma conta de teste e substitua 'user' e 'pass' abaixo.
 const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email', 
     port: 587, 
-    secure: false, // Ethereal usa TLS (porta 587)
+    secure: false,
     auth: {
-        user: 'vincenzo.dibbert@ethereal.email', // ⬅️ SUBSTITUA
-        pass: 'GgMXjQSePQPHbZ5955', // ⬅️ SUBSTITUA
+        user: 'vincenzo.dibbert@ethereal.email', 
+        pass: 'GgMXjQSePQPHbZ5955', 
     }
 });
 
 
-/**
- * Envia o código 2FA para o e-mail do destinatário usando o Nodemailer.
- * @param {string} toEmail - O endereço de e-mail do destinatário.
- * @param {string} code2FA - O código temporário de 6 dígitos.
- */
 function send2FACode(toEmail, code2FA) {
     const mailOptions = {
         from: '"Sistema LabLivre" <teste@lablivre.com.br>',
