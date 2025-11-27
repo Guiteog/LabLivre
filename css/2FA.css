@@ -101,6 +101,10 @@ main{
     margin: 0.5vh 0 0.5vh 0;
 }
 
+.svg-email img{
+    width: 20px;
+}
+
 .form-email{
     display: grid;
     margin-left: 0.5vw;
@@ -138,6 +142,10 @@ main{
     text-decoration: none;
     align-content: center;
     font-size: 1.15vw;
+}
+
+.container-flex{
+    display: flex
 }
 
 /* fundo */
