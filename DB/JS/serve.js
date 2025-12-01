@@ -62,8 +62,8 @@ function creaTableDb(db,index=0){
 
 
 /*=========Primeira Parte Login==========*/
-app.post('/login',(err, user => {
-    const {email} = user.body;
+app.post('/login',(req, res => {
+    const {email} = req.body;
     if(!email){
         return res.status(400).json({ status: null });
     }
@@ -103,7 +103,7 @@ app.post('/login',(err, user => {
 
 //======Minhas Reservas======//
 app.get('/myReservas', (req, res =>{
-    const {cpf} = req;
+    const {cpf} = req.query;
 
     if(!cpf){
         return res.status(400).json({ status: null });
@@ -131,3 +131,29 @@ app.get('/myReservas', (req, res =>{
         });
     })
 }));
+
+//======Todas as Reservas Actives=======//
+app.get('/allReservasActvities', (req, res =>{
+    reserva.activeReserva(db,(err, rows) => {
+        if(err){
+            return res.status(500).json({ 
+                status: "Erro interno do servidor ao buscar reservas.",
+                errorDetails: err.message
+            });
+        }
+
+        //Caso não tenha nenhum dado
+        if(!rows || rows.length === 0){
+            return res.status(200).json({ 
+                status: "Nenhuma reserva.",
+                reservas: []
+            });
+        }
+
+        //Dados da Reserva se tiver
+        return res.status(200).json({ 
+            status: "Reservas ativas",
+            reservas: rows
+        });
+    })
+}))
