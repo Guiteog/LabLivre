@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indisponibilidade</title>
+    <link rel="stylesheet" href="indispo.css">
+</head>
+<body>
+    
+
+<div class="container">
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+    <section>
+        <h2>Equipamentos</h2>
+        <div id="equipamentos" class="agenda"></div>
+
+        <h2>Salas</h2>
+        <div id="salas" class="agenda"></div>
+    </section>
+    </main>
+
+    <!-- BOTÃO DE ADICIONAR -->
+    <button class="add-btn" onclick="openForm()">+</button>
+
+</div>
+
+<!-- MODAL PARA ADICIONAR EVENTO -->
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Manuntenção</h2>
+
+        <form onsubmit="addEvent(event)">
+            
+            <input type="text" id="titulo" placeholder="Nome do equipamento/sala" required>
+
+            <input type="text" id="descricao" placeholder="Descrição" required>
+
+            <input type="date" id="data" required>
+
+            <select id="tipo">
+                <option value="equipamento">Equipamento</option>
+                <option value="sala">Sala</option>
+            </select>
+
+            <input type="file" id="img" accept="image/*">
+
+            <form>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeForm()">Cancelar</button>
+                    <button type="submit">Adicionar</button>
+                </div>
+            </form>
+        </form>
+    </div>
+</div>
+<script src="indispo.js"></script>
+</body>
+</html>
