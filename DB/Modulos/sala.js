@@ -12,8 +12,8 @@ const sqlite3 = require("sqlite3");
 function creatTable(db, callback){
     const sql = `
         CREATE TABLE IF NOT EXISTS Sala (
-            id_sala INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome_sala TEXT UNIQUE NOT NULL
+            idSala INTEGER PRIMARY KEY AUTOINCREMENT,
+            nomeSala TEXT UNIQUE NOT NULL
         );
     `;
 

@@ -40,7 +40,6 @@ function send2FACode(toEmail, code2FA) {
             console.error("ERRO AO ENVIAR E-MAIL:", error);
         } else {
             console.log('E-mail 2FA enviado com sucesso:', info.response);
-            // URL de visualização de teste (funciona apenas com Ethereal):
             console.log('URL de Pré-visualização do E-mail:', nodemailer.getTestMessageUrl(info));
         }
     });

@@ -13,11 +13,9 @@ const table = "curso";
 /*---Criar tabelas---*/
 function creatTable(db, callback) {
     const sql = `
-        CREATE TABLE IF NOT EXISTS curso (
-            id_curso INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome_curso TEXT UNIQUE NOT NULL,
-            periodo TEXT,
-            descricao TEXT
+        CREATE TABLE IF NOT EXISTS Curso (
+            idCurso TEXT PRIMARY KEY AUTOINCREMENT,
+            nomeCurso TEXT UNIQUE NOT NULL
         );
     `;
     
