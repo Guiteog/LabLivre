@@ -31,7 +31,8 @@ function listarCurso(){
     db.all(sql, [], callback)
 }
 
-module.exports(
+module.exports = {
     creatTable,
     listarCurso
-)
+}
+    

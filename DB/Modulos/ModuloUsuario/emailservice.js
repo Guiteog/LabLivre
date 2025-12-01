@@ -48,9 +48,10 @@ function verifyToken(db, cpf,token, callback){
     db.get(sql,[cpf,token,now],callback);
 }
 
-module.exports(
+module.exports ={
     creatTable,
     removeToken,
     setToken,
     verifyToken
-)
+}
+    

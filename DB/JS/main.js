@@ -58,11 +58,14 @@ function creaTableDb(db,index=0){
     });  
 }
 
+db.serialize(() => {
+    db.get("SELECT COUNT(*) AS ")
+}
 
-
+)
 
 /*=========Primeira Parte Login==========*/
-app.post('/login',(req, res => {
+app.post('/login',(req, res) => {
     const {email} = req.body;
     if(!email){
         return res.status(400).json({ status: null });
@@ -99,10 +102,10 @@ app.post('/login',(req, res => {
         })
     })
 
-}));
+});
 
 //======Minhas Reservas======//
-app.get('/myReservas', (req, res =>{
+app.get('/myReservas', (req, res) =>{
     const {cpf} = req.query;
 
     if(!cpf){
@@ -130,10 +133,10 @@ app.get('/myReservas', (req, res =>{
             reservas: rows
         });
     })
-}));
+});
 
 //======Todas as Reservas Actives=======//
-app.get('/allReservasActvities', (req, res =>{
+app.get('/allReservasActvities', (req, res) =>{
     reserva.activeReserva(db,(err, rows) => {
         if(err){
             return res.status(500).json({ 
@@ -156,4 +159,4 @@ app.get('/allReservasActvities', (req, res =>{
             reservas: rows
         });
     })
-}))
+})

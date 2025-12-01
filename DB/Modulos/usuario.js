@@ -30,11 +30,33 @@ function creatTable(db, callback) {
         );
     `;
     
-    db.run(sql, callback);
+    db.run(sql, (err)=>{
+        db.get(`SELECT COUNT(*) AS total FROM Usuario`,(err,row) =>{
+            if (err) return callback(err);
+            if(row.total === 0){
+                const dadosUser = `
+                    INSERT INTO Usuario(cpf,email,nome,perfil)
+                    VALUES
+                        ('11122233344', 'João da Silva', 'gui.tgomez@gmail.com', 'Administrador', '1234'),
+                        ('55566677788', 'Maria Oliveira', 'maria@lablivre.com', 'Professor', '5678'),
+                        ('99900011122', 'Carlos Pereira', 'carlos@lablivre.com', 'Técnico', '9012'),
+                        ('33344455566', 'Ana Souza', 'ana@lablivre.com', 'Professor', '3456');
+                `;
+
+                db.run(dadosUser,(err)=>{
+                    if (err) return callback(err);
+                    console.log("Usuarios iniciais criados.");
+                    callback(null);
+                })
+            }
+        })
+    });
 }
 
-module.exports(
+module.exports = {
     getUser,
     creatTable
-)
+}
+    
+
     

@@ -30,7 +30,8 @@ function listarSala(){
     db.all(sql, [], callback)
 }
 
-module.exports(
+module.exports = {
     creatTable,
     listarSala
-)
+}
+    
