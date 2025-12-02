@@ -8,8 +8,8 @@
     --active-text: #3f67e5;
     --background: #f0f2f5;
 }
-
-body {
+ 
+.body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: var(--background);

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./CSS/css_login.css">
+    <link rel="stylesheet" href="CSS/inicio.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="JS/inicio.js"></script>
+</head>
+<body>
+    <main>
+        <div class="contener">
+            <div class="menu">
+                <div class="perfil"> 
+                    <div class="img_perfil"><img src="./IMG/perfil.png" alt="foto de perfil"></div>
+                    <div class="nome_psa"> 
+                        <p class="nome" id="nome">Murilo</p>
+                        <p class="email" id="email">Murilo.senai@aluno</p>
+                    </div>
+                    <div class="seta"><img src="./IMG/seta.svg" alt="seta"></div>
+                </div>
+
+                <div class="menu1"> 
+                    <a href="index.html" class="menu-link"> 
+                        <div class="comeco">
+                            <div class="quadrado">
+                                <div class="img-start"><img src="./IMG/casa.png" alt="Início"></div>
+                            </div>
+                            <div class="texto texto_inicio"><p>
+                                Início
+                            </p></div>
+                        </div> 
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""> </div>
+                    </a>
+
+                    <a href="visao_geral.html" class="menu-link">
+                        <div class="comeco">
+                            <div class="img-start"><img src="./IMG/visuG.png" alt="Visão Geral"></div>
+                            <div class="texto"><p>
+                                Visão Geral
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""></div>
+                    </a>
+
+                    
+                </div>
+
+                <div class="menu2">
+                    <a href="indisponibilidade.html" class="menu-link">
+                        <div class="comeco">
+                            <div class="quadrado">
+                                <div class="img-start"><img src="./IMG/indisponibilidade.png" alt="Indisponibilidade"></div>
+                            </div>
+                            <div class="texto texto_inicio"><p>
+                                Indisponibilidade
+                            </p></div>
+                        </div> 
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""> </div>
+                    </a>
+
+                    <a href="configuracoes.html" class="menu-link">
+                        <div class="comeco">
+                            <div class="img-start"><img src="./IMG/configuração.png" alt="Configurações"></div>
+                            <div class="texto"><p>
+                                Configurações
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""></div>
+                    </a>
+
+                    <a href="acessibilidade.html" class="menu-link"> 
+                        <div class="comeco"> 
+                            <div class="img-start"><img src="./IMG/acessibilidade.png" alt="Acessibilidade"></div>
+                            <div class="texto"><p>
+                                Acessibilidade
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""></div>
+                    </a>
+                </div>
+                
+                <div class="sair">
+                    <a href="sair.html" class="menu-link">
+                        <div class="comeco">
+                            <div class="quadrado">
+                                <div class="img-start"><img src="./IMG/sair.png" alt="Sair"></div>
+                            </div>
+                            <div class="texto texto_inicio"><p>
+                                Sair
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""> </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="body">
+                <main class="content">
+                <section class="dashboard-section">
+                    <h2>Cursos</h2>
+                    <p class="subtitle">Selecionado: <span id="curso-selecionado-nome"></span></p>
+                    <div class="courses-grid" id="cursos-container">
+                        </div>
+                </section>
+
+                <section class="dashboard-section">
+                    <h2>Avisos</h2>
+                    <p class="subtitle">Recentes</p>
+                    <div id="avisos-container">
+                        </div>
+                </section>
+
+                <section class="dashboard-section">
+                    <h2>Minhas Reservas</h2>
+                    <p class="subtitle">Próximas</p>
+                    <div id="reservas-container">
+                        </div>
+                </section>
+            </main>
+
+        </div>
+    </main>
+
+</body>
+</html>

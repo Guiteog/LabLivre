@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.contener{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100vh;
+}
+
+.menu{
+    background-color: #F9F9FF;
+    padding: 25px 15px 15px 15px;
+}
+
+.perfil{
+    display:flex;
+    background-color: #D7DFFC;
+    height: 3.5vw;
+    align-items: center;
+    padding: 2%;
+    border-radius: 16px;
+    justify-content: space-around;
+}
+
+.nome_psa{
+    margin-right: 25%;
+}
+
+.email{
+    color: #8C8C8C;
+    margin-bottom: 5%;
+}
+
+/* 🔄 ALTERADO/ADICIONADO: NOVO ESTILO PARA O LINK (.menu-link) */
+.menu-link{ 
+    /* Estilos originais do .button */
+    display: flex;
+    height: 3vw;
+    border: 1px solid #000;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px 0 15px;
+    margin-bottom: 5%;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    /* Estilos para tornar o link funcional e visualmente correto */
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Mantém a cor do texto padrão */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 8px; /* Adicionado para um visual mais moderno */
+}
+
+/* ✨ ADICIONADO: Efeito HOVER */
+.menu-link:hover {
+    background-color: #e9e9f9; 
+    border-color: #8c8c8c;
+}
+
+/* 🔄 ALTERADO: Alinhamento vertical do ícone e texto */
+.comeco{
+    display: flex;
+    align-items: center; /* ESSENCIAL para o alinhamento vertical */
+    gap: 8%;
+    width: 100%;
+}
+
+.menu1{
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.menu2{
+    margin-top: 15%;
+    margin-bottom: 50%;
+}
+
+/* 🔄 ALTERADO: Ajusta o contêiner do ícone */
+.quadrado{
+    width: auto; /* Garante que o ícone não seja espremido */
+}

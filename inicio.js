@@ -2,7 +2,7 @@
 const dashboardData = {
     curso: {
         nome: "ADS SE4",
-        imagemUrl: "dev.jpg", 
+        imagemUrl: "./IMG/dev.jpg", 
         reservas: 5,
         alunos: 12
     },
