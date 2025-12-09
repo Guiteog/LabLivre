@@ -36,13 +36,15 @@ const cursoDB = require('../Modulos/curso');
 const reserva = require('../Modulos/reserva');
 const emailService = require('../Modulos/ModuloUsuario/emailservice');
 const authDB = require('../Modulos/ModuloUsuario/2FA');
+const cursoProfessor = require('../Modulos/curso_professor')
 
 const creaTabl = [
     salasDB.creatTable,
     usuarioDB.creatTable,
     cursoDB.creatTable,
     reserva.creatTable,
-    emailService.creatTable
+    emailService.creatTable,
+    cursoProfessor.creatTable
 ]
 //==========================
 //Rapaziada, se der qualquer
@@ -212,5 +214,74 @@ app.get('/allReservasActvities', (req, res) =>{
             status: "Reservas ativas",
             reservas: rows
         });
+    })
+})
+
+app.get('/cursos', (req, res) =>{
+    const {cpf} = req.query
+    if(!cpf){
+        return res.status(401).json({
+            status:false,
+            message:"Dado nulo"
+        })
+    }
+
+    cursoProfessor.getCurso(db,cpf,(err, rows)=>{
+        if(err){
+            console.error("Erro no servidor");
+            return res.status(500).json({
+                status:false,
+                message:"Erro no servidor"
+            })
+        }
+
+        if(!rows || rows.length === 0){
+             return res.status(200).json({ 
+                status: true,
+                message: "Nenhum curso encontrado para este professor.",
+                cursos: [] 
+            })
+        }
+
+        return res.status(200).json({
+            status: true,
+            message: "Cursos encontrados com sucesso.",
+            cursos: rows 
+        })
+    })
+})
+
+//=======Filtrar por curso=======//
+app.get('/cursoFiltro',(req,res) =>{
+    const {nomeCurso} = req.query;
+    if(!nomeCurso){
+        return res.status(401).json({
+            status:false,
+            message:"Dado nulo"
+        })
+    } 
+
+    reserva.reservaCursos(db,nomeCurso, (err,rows)=>{
+        if(err){
+            console.error("Erro no servidor");
+            return res.status(500).json({
+                status:false,
+                message:"Erro no servidor"
+            })
+        }
+
+        if(!rows || rows.length === 0){
+             return res.status(200).json({ 
+                status: true,
+                message: "Nenhuama Reserva Encontrada",
+                reservas: [] 
+            })
+        }
+
+        return res.status(200).json({
+            status: true,
+            message: "Reservas Encontradas",
+            reservas: rows 
+        })
     })
 })

@@ -24,7 +24,7 @@ function creatTable(db, callback) {
             dataFimCompleta TEXT NOT NULL,
             FOREIGN KEY(idSala) REFERENCES Sala(idSala),
             FOREIGN KEY(idCPF) REFERENCES Usuario(cpf),
-            FOREIGN KEY(idCurso) REFERENCES curso(idCurso)
+            FOREIGN KEY(idCurso) REFERENCES Curso(nomeCurso)
         );
     `;
     
@@ -76,6 +76,17 @@ function myReserva(db, idCPF, callback) {
     db.all(sql, [idCPF, now], callback);
 }
 
+//======Reservas Do Curso=======//
+function reservaCursos(db, nomeCurso, callback){
+    const now = new Date().toISOString();
+    const sql = `
+        SELECT * FROM Reserva 
+        Where nomeCurso = ? AND dataFimCompleta
+        ORDER BY dataInicio ASC
+    `;
+
+    db.all(sql,[nomeCurso,now], callback);
+}
 
 //======Verificar Reserva======//
 function filterReserva(db, idSala, dia, turnoStart, turnoEnd, callback){
@@ -105,5 +116,6 @@ module.exports = {
     getAll,
     activeReserva,
     myReserva,
-    filterReserva
+    filterReserva,
+    reservaCursos
 };

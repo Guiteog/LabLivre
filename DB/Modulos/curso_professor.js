@@ -15,7 +15,7 @@ criação de tabela
 /*======Criar tabelas======*/
 function creatTable(db, callback) {
     const sql = `
-        CREATE TABLE IF NOT EXISTS Curso_&_Professor (
+        CREATE TABLE IF NOT EXISTS Curso_e_Professor (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nomeCurso TEXT NOT NULL,
             cpf_Professor TEXT,
@@ -25,11 +25,11 @@ function creatTable(db, callback) {
     `;
     
     db.run(sql, (err)=>{
-        db.get(`SELECT COUNT(*) AS total FROM Curso_&_Professor`,(err,row) =>{
+        db.get(`SELECT COUNT(*) AS total FROM Curso_e_Professor`,(err,row) =>{
             if (err) return callback(err);
             if(row.total === 0){
                 const dadosCursos = `
-                    INSERT INTO Curso(nomeCurso,cpf_Professor)
+                    INSERT INTO Curso_e_Professor(nomeCurso, cpf_Professor)
                     VALUES
                         ('Mecânico de Manutenção de Máquinas Industriais', '887.986.528-50'), 
                         ('Eletricista Industrial', '887.986.528-50'), 
@@ -45,10 +45,26 @@ function creatTable(db, callback) {
 
                 db.run(dadosCursos,(err)=>{
                     if (err) return callback(err);
-                    console.log("cursos inicias criados");
+                    console.log("cursos & professores relacionados");
                     callback(null);
                 })
             }
         })
     });
+}
+
+function getCurso(db,cpf,callback){
+    const sql = `SELECT * FROM Curso_e_Professor WHERE cpf = ?`;
+    db.all(sql,[cpf],callback);
+}
+
+function getCursoFilter(db, nomeCurso, callback){
+    const sql = `SELECT * FROM Curso_e_Professor WHERE nomeCurso = ?`;
+    db.all(sql,[nomeCurso],callback);
+}
+
+module.exports = {
+    creatTable,
+    getCurso,
+    getCursoFilter
 }
