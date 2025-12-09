@@ -13,9 +13,14 @@ getUsuario - autenticação(Verificar a credibilidade do dado)
 */
 
 //Autenticação
-function getUser(db, email, calback){
-    const sql = `SELECT FROM * usuario WHERE email = ?`
-    db.get(sql, [email], calback);
+function getUser(db, email, callback){
+    const sql = `SELECT * FROM usuario WHERE email = ?`
+    db.get(sql, [email], callback);
+}
+
+function getUserCpf(db,cpf,callback){
+    const sql = `SELECT * FROM usuario WHERE cpf = ?`
+    db.get(sql,[cpf], callback);
 }
 
 //Criar Tabela
@@ -23,7 +28,7 @@ function getUser(db, email, calback){
 function creatTable(db, callback) {
     const sql = `
         CREATE TABLE IF NOT EXISTS Usuario (
-            cpf INTEGER PRIMARY KEY NOT NULL,
+            cpf TEXT PRIMARY KEY NOT NULL,
             email TEXT NOT NULL,
             nome TEXT,
             perfil TEXT
@@ -35,12 +40,12 @@ function creatTable(db, callback) {
             if (err) return callback(err);
             if(row.total === 0){
                 const dadosUser = `
-                    INSERT INTO Usuario(cpf,email,nome,perfil)
+                    INSERT INTO Usuario(cpf,nome,email,perfil)
                     VALUES
-                        ('11122233344', 'João da Silva', 'gui.tgomez@gmail.com', 'Administrador', '1234'),
-                        ('55566677788', 'Maria Oliveira', 'maria@lablivre.com', 'Professor', '5678'),
-                        ('99900011122', 'Carlos Pereira', 'carlos@lablivre.com', 'Técnico', '9012'),
-                        ('33344455566', 'Ana Souza', 'ana@lablivre.com', 'Professor', '3456');
+                        ('887.986.528-50', 'Guilherme Teodoro', 'guilherme.t.gomes7@aluno.senai.br', 'PROF'),
+                        ('358.741.728-82', 'Giovana Lobo', 'giovana.l.santos6@aluno.senai.br', 'TEC'),
+                        ('723.557.388-07', 'Murillo Alves', 'carlos@lablivre.com', 'PROF'),
+                        ('176.979.388-71', 'Gabriela Meri', 'ana@lablivre.com', 'TEC');
                 `;
 
                 db.run(dadosUser,(err)=>{
@@ -55,7 +60,8 @@ function creatTable(db, callback) {
 
 module.exports = {
     getUser,
-    creatTable
+    creatTable,
+    getUserCpf
 }
     
 

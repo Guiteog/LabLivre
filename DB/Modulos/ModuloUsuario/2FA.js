@@ -3,19 +3,17 @@
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email', 
-    port: 587, 
-    secure: false,
+    service:'gmail',
     auth: {
-        user: 'vincenzo.dibbert@ethereal.email', 
-        pass: 'GgMXjQSePQPHbZ5955', 
+        user: 'gui.tgomez@gmail.com',
+        pass: 'bafe uknv xdva aefz'
     }
 });
 
 
 function send2FACode(toEmail, code2FA) {
     const mailOptions = {
-        from: '"Sistema LabLivre" <teste@lablivre.com.br>',
+        from: '"Sistema LabLivre" <gui.tgomez@gmail.com>',
         to: toEmail,
         subject: 'Seu Código de Acesso Único (2FA)',
         html: `
@@ -39,8 +37,7 @@ function send2FACode(toEmail, code2FA) {
         if (error) {
             console.error("ERRO AO ENVIAR E-MAIL:", error);
         } else {
-            console.log('E-mail 2FA enviado com sucesso:', info.response);
-            console.log('URL de Pré-visualização do E-mail:', nodemailer.getTestMessageUrl(info));
+            console.log('✅ E-mail enviado com sucesso para:', toEmail);
         }
     });
 }

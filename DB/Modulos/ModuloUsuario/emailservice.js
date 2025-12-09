@@ -5,10 +5,10 @@ const sqlite3 = require("sqlite3");
 function creatTable(db, callback) {
     const sql = `
         CREATE TABLE IF NOT EXISTS emailToken (
-            cpfUser INTEGER PRIMARY KEY,
+            cpfUser TEXT PRIMARY KEY,
             token INTEGER NOT NULL,
             expiresToken TEXT NOT NULL, 
-            FOREIGN KEY(cpfUser) REFERENCES Usuario(cpf)
+            FOREIGN KEY(cpfUser) REFERENCES Usuario(cpf) ON DELETE CASCADE
         );
     `;
     
@@ -42,7 +42,7 @@ function verifyToken(db, cpf,token, callback){
         SELECT * FROM emailToken
         WHERE cpfUser = ?
         AND token = ?
-        AND expireToken > ?
+        AND expiresToken > ?
     `
 
     db.get(sql,[cpf,token,now],callback);
