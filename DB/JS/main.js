@@ -285,3 +285,54 @@ app.get('/cursoFiltro',(req,res) =>{
         })
     })
 })
+
+
+//======Cadastro De Reserva======//
+app.post('/reserva',(req,res) =>{
+    const reservaDados = req.body;
+    if(!reservaDados || !reservaDados.cpf || !reservaDados.id_sala || !reservaDados.data_reserva || !reservaDados.horario_inicio){
+        return res.status(401).json({
+            status:false,
+            message:"Dado nulo"
+        })
+    }
+
+    reserva.checkReservaConflito(db,reservaDados,(err,conflito)=>{
+        if(err){
+            console.error("❌ Erro SQL ao verificar conflito de reserva:", err.message);
+            return res.status(500).json({ 
+                status: false, 
+                message: "Erro interno do servidor ao verificar a disponibilidade." 
+            });
+        }
+
+        if (conflito) {
+            console.warn("⚠️ Conflito de reserva detectado:", reservaDados);
+            return res.status(409).json({ // 409 Conflict indica que o recurso não pôde ser criado devido a um conflito (reserva existente)
+                status: false,
+                message: "Já existe uma reserva confirmada para esta sala neste horário. Escolha outro horário ou sala."
+            });
+        }
+
+        reserva.insertReserva(db,reservaDados,(err, result)=>{
+        if(err){
+            console.error("❌ Erro SQL ao cadastrar reserva:", err.message);
+            return res.status(500).json({
+                status:false,
+                message:"Erro interno do servidor ao registrar a reserva."
+            })
+        }
+
+        console.log("✅ Reserva cadastrada com sucesso:", reservaDados);
+            return res.status(201).json({
+                status: true,
+                message: "Reserva cadastrada com sucesso!"
+            })
+
+        })
+
+
+    })
+
+    
+})

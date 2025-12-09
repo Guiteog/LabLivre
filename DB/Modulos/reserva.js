@@ -38,10 +38,10 @@ function insertReserva(db, reservaDados, callback){
     
     const sql = `
         INSERT INTO Reserva (idSala, idCPF,idCurso, titulo, dia, turnoStart, turnoEnd, dataFimCompleta)
-        VALUES(?,?,?,?,?,?,?)
+        VALUES(?,?,?,?,?,?,?,?)
     `
 
-    db.run(sql,[idSala, idCPF,idCurso, titulo, dia, turnoStart, turnoEnd], callback);
+    db.run(sql,[idSala, idCPF,idCurso, titulo, dia, turnoStart, turnoEnd, dataFimCompleta], callback);
 }
 
 //======Reservas Gerais All=====//
@@ -71,7 +71,7 @@ function myReserva(db, idCPF, callback) {
     const sql = `
         SELECT * FROM Reserva
         WHERE idCPF = ? AND dataFimCompleta > ?
-        ORDER BY dataInicio ASC
+        ORDER BY dia ASC, turnoStart ASC
     `;
     db.all(sql, [idCPF, now], callback);
 }
@@ -81,7 +81,7 @@ function reservaCursos(db, nomeCurso, callback){
     const now = new Date().toISOString();
     const sql = `
         SELECT * FROM Reserva 
-        Where nomeCurso = ? AND dataFimCompleta
+        WHERE idCurso = ? AND dataFimCompleta > ?
         ORDER BY dataInicio ASC
     `;
 
@@ -109,7 +109,18 @@ function filterReserva(db, idSala, dia, turnoStart, turnoEnd, callback){
     ], callback);
 }
 
-
+//======Conflito=======//
+function checkReservaConflito(db, reservaDados, callback) {
+    const { idSala, dia, turnoStart, turnoEnd } = reservaDados;
+    filterReserva(db, idSala, dia, turnoStart, turnoEnd, (err, existingReserva) => {
+        if (err) {
+            return callback(err);
+        }
+        
+        const conflito = !!existingReserva; 
+        callback(null, conflito);
+    });
+}
 module.exports = {
     creatTable,
     insertReserva,
@@ -117,5 +128,6 @@ module.exports = {
     activeReserva,
     myReserva,
     filterReserva,
-    reservaCursos
+    reservaCursos,
+    checkReservaConflito
 };
