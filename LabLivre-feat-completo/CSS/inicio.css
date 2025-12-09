@@ -1,0 +1,200 @@
+/* Variáveis de Cores */
+:root {
+    --senai-blue: #3f67e5;
+    --light-purple: #c2cffb;
+    --dark-text: #2c3e50;
+    --light-text: #7f8c8d;
+    --active-bg: #e5e9fc;
+    --active-text: #3f67e5;
+    --background: #f0f2f5;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--dark-text);
+}
+
+
+/* Estilos de Menu (omitidos por brevidade, mas devem seguir o exemplo anterior) */
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-right: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background-color: var(--light-purple);
+    cursor: pointer;
+    position: relative;
+}
+
+.avatar-icon {
+    font-size: 30px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.user-details {
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.user-name { font-weight: bold; font-size: 14px; margin: 0; color: var(--dark-text); }
+.user-email { font-size: 12px; margin: 0; color: #6a80d4; }
+.arrow-icon { font-size: 12px; color: var(--dark-text); }
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 15px;
+    margin: 8px 25px 8px 0;
+    text-decoration: none;
+    color: var(--dark-text);
+    font-size: 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.menu-item i:first-child { margin-right: 12px; width: 20px; text-align: center; }
+.menu-item i:last-child { margin-left: auto; font-size: 10px; color: var(--light-text); }
+.menu-item.active { background-color: var(--active-bg); color: var(--active-text); font-weight: bold; }
+
+/* -------------------- CONTEÚDO PRINCIPAL -------------------- */
+
+.content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.header {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 40px;
+}
+
+.senai-logo {
+    height: 35px;
+}
+
+.dashboard-section {
+    margin-bottom: 35px;
+}
+
+.dashboard-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--dark-text);
+    margin: 0 0 5px 0;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: var(--light-text);
+    margin: 0 0 15px 0;
+}
+
+/* --- ESTILOS DE CARDS (Curso, Avisos e Reservas) --- */
+
+/* Curso Card */
+.courses-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.course-card {
+    width: 200px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.course-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.course-details {
+    padding: 10px 15px;
+}
+
+.course-details h3 { font-size: 18px; margin: 0 0 5px 0; }
+.course-details p { font-size: 13px; color: var(--light-text); margin: 2px 0; }
+
+/* Aviso Card (Estado Vazio) */
+.announcement-card {
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    font-size: 16px;
+    color: var(--light-text);
+    width: 300px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reserva Card */
+.reservation-card {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+    width: 380px;
+    margin-bottom: 15px; /* Espaço entre múltiplas reservas */
+}
+
+.reservation-date {
+    background-color: var(--light-purple);
+    color: var(--senai-blue);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    width: 50px;
+    margin-right: 15px;
+}
+
+.reservation-date .month { display: block; font-size: 12px; }
+.reservation-date .day { display: block; font-size: 24px; }
+
+.reservation-details { flex-grow: 1; position: relative; }
+.reservation-details h3 { font-size: 18px; margin: 0 0 5px 0; display: inline-block; }
+
+.time-left {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #e74c3c;
+    background-color: #fcecec;
+    padding: 3px 8px;
+    border-radius: 5px;
+}
+
+.reservation-details p { font-size: 13px; color: var(--light-text); margin: 4px 0; }
+.reservation-details i { margin-right: 5px; color: var(--senai-blue); }
+
+.details-btn {
+    background-color: var(--light-purple);
+    color: var(--senai-blue);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 13px;
+}

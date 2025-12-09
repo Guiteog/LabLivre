@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./CSS/css_login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <main>
+        <div class="contener">
+            <div class="menu">
+                <div class="perfil"> 
+                    <div class="img_perfil"><img src="./IMG/perfil.png" alt="foto de perfil"></div>
+                    <div class="nome_psa"> 
+                        <p class="nome" id="nome"></p>
+                        <p class="email" id="email"></p>
+                    </div>
+                    <div class="seta"><img src="./IMG/seta.svg" alt="seta"></div>
+                </div>
+
+                <div class="menu1"> 
+                    <div onclick="carregar('inicio.html')" class="menu-link">
+                        <div class="comeco">
+                            <div class="quadrado">
+                                <div class="img-start"><img src="./IMG/casa.png" alt="Início"></div>
+                            </div>
+                            <div class="texto texto_inicio"><p>
+                                Início
+                            </p></div>
+                        </div> 
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""> </div>
+                    </div>
+
+                    <div onclick="carregar('visao_geral.html')" class="menu-link">
+                        <div class="comeco">
+                            <div class="img-start"><img src="./IMG/visuG.png" alt="Visão Geral"></div>
+                            <div class="texto"><p>
+                                Visão Geral
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""></div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="menu2">
+                    <div onclick="carregar('indispo.html')" class="menu-link">
+                        <div class="comeco">
+                            <div class="quadrado">
+                                <div class="img-start"><img src="./IMG/indisponibilidade.png" alt="Indisponibilidade"></div>
+                            </div>
+                            <div class="texto texto_inicio"><p>
+                                Indisponibilidade
+                            </p></div>
+                        </div> 
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""> </div>
+                    </div>
+
+                    <div onclick="carregar('config.html')" class="menu-link">
+                        <div class="comeco">
+                            <div class="img-start"><img src="./IMG/configuração.png" alt="Configurações"></div>
+                            <div class="texto"><p>
+                                Configurações
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""></div>
+                    </div>
+
+                    <div onclick="carregar('visao_geral.html')" class="menu-link">
+                        <div class="comeco"> 
+                            <div class="img-start"><img src="./IMG/acessibilidade.png" alt="Acessibilidade"></div>
+                            <div class="texto"><p>
+                                Acessibilidade
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""></div>
+                    </div>
+                </div>
+                
+                <div class="sair">
+                    <div href="sair.html" class="menu-link">
+                        <div class="comeco">
+                            <div class="quadrado">
+                                <div class="img-start"><img src="./IMG/sair.png" alt="Sair"></div>
+                            </div>
+                            <div class="texto texto_inicio"><p>
+                                Sair
+                            </p></div>
+                        </div>
+                        <div class="img-end"><img src="./IMG/seta.svg" alt=""> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="conteudo">
+                <iframe id="pagina" src="inicio.html"></iframe>
+            </div>
+        </div>
+    </main>
+
+</body>
+<script src="./JS/script.js"></script>
+</html>

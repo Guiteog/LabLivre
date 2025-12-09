@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css" type="text/css">
+    <title>Entrar</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="login">
+
+                <!-- Logo do SENAI -->
+                <header><img src="./IMG/img-login/logo.png" alt="Logo" style="width: 22%;"></header>
+
+                <!-- Conteudo para entrar no site -->
+                <div class="main-login">
+
+                    <!-- Textos Top -->
+                    <div class="text">
+                        <h1>LabLivre SENAI</h1>
+                        <h2>Seu Laboratório de Conhecimento Aberto</h2>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="main-camp">
+                            
+                        <!-- SVG E-mail -->
+                        <div class="svg-email">
+                            <img src="./IMG/img-login/e-mail.svg" alt="E-mail">
+                        </div>
+                            
+                        <!-- Campo do E-mail -->
+                        <div class="form-email">
+                            <div class="title-email">
+                                <p>E-mail</p>
+                            </div>
+
+                            <div class="camp-email">
+                                <input type="email" placeholder="example@senai.org.br" id="email">
+                            </div>
+                                
+                        </div>
+
+                    </div>
+
+                    <button class="btn-input" onclick="login()">Entrar</button>
+                </div> 
+               
+                <footer>SENAI &copy; 2025</footer>
+            </div>    
+                
+
+        
+            <!-- Capa lado da direita -->
+            <div class="capa">
+                    <img src="./IMG/img-login/capa.png" alt="Capa" style="height: 100%; width: 100%; border-radius: 16px; grid-area: capa-area;">
+            </div>  
+        </div>
+    </main>
+</body> 
+<script src="./JS/login.js"></script>
+</html>

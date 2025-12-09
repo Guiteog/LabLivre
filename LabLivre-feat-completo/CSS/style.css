@@ -1,0 +1,150 @@
+/*Fonte*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #DEE1E7;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+/* Tamanho Do Container */
+.container{
+    display: grid;   /* divisão de tela */
+    grid-template-columns: 1fr 1.17fr;
+    grid-template-areas:
+        "login-area capa-area";
+    background-color: #FFFFFF;
+}
+
+/* Posição Do Container */
+.container{
+    border-radius: 16px;
+    width: clamp(320px, 62vw, 1800px);
+    height: auto;
+}
+
+/* Espaçamentos do campo esquerdo */
+.login{
+    display: grid;
+    grid-area: login-area;
+    margin: 2vh 1vw 0 1vw;
+    grid-template-rows: 0.2fr 3fr 0.09fr;
+}
+
+ header{/*Cabeçario*/
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 1vh;
+}
+
+.main-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* ESPAÇAMENTO */
+    margin-top: 9vh;
+
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    justify-self: start;
+}
+
+.text h1{
+    font-weight: 500;
+    font-size: 2vw;
+}
+
+.text h2{
+    font-weight: 400;
+    font-size: 1vw;
+    color: #515151;
+}
+
+/* Campo do Email */
+.main-camp{
+    display: flex;
+    border: 2px solid #D7D7D7;
+    border-radius: 8px;
+    width: 70%;
+    height: 10%;
+    margin: 15% 0 8% 0;
+}
+
+/* Imagem do Email */
+.svg-email{
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-right: 2px solid #D7D7D7 ;
+    margin: 0.5vh 0 0.5vh 0;
+}
+
+.form-email{
+    display: grid;
+    margin-left: 0.5vw;
+    grid-template-rows: 1fr 2fr;
+    
+}
+
+.form-email input[type=email]{
+    width: 100%;
+    height: 65%;
+    outline: none;
+    line-height: normal;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.title-email{
+    font-size: 0.751vw;
+    color: #626262;
+}
+
+.camp-email{
+    display: flex;
+    align-items: start;
+}
+
+.btn-input{
+    border: none;
+    background: #323ff7;
+    color: #FFFFFF;
+    width: 70%;
+    height: 10%;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    font-size: 1.15vw;
+}
+
+/* fundo */
+footer{
+    display: flex;
+    justify-content: center;
+    font-size: 0.75vw;
+    color: #626262;
+
+}

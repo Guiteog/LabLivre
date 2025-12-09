@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="./CSS/config.css">
+</head>
+
+<body>
+
+    <header class="topo">
+        <img class="logo" src="./IMG/./config.img/senai_logo.png">
+    </header>
+
+    <main class="conteudo">
+        <h2>Configurações</h2>
+
+        <p class="subtitulo">Gerencie as configurações</p>
+
+        <!-- Linha Tema -->
+        <div class="linha" id="abrirTema">
+            <div class="ladoEsq">
+                <img src="./IMG/./config.img/sol.png" alt="sol">
+                <span>Tema Claro / Escuro</span>
+            </div>
+            <span class="seta">›</span>
+        </div>
+
+        <!-- Linha GitHub -->
+        <div class="linha" onclick="abrirGitHub()">
+            <div class="ladoEsq">
+                <img src="./IMG/./config.img/github.png" alt="sol">
+                <span>GitHub do Projeto</span>
+            </div>
+            <span class="seta">›</span>
+        </div>
+
+        <!-- Caixa pop-up de seleção de tema -->
+        <div class="cardTema" id="cardTema">
+            <div class="botaoTema" onclick="mudarTema('claro')">
+                <img src="./IMG/./config.img/sol.png" alt="sol">
+                <span>Modo Claro</span>
+                <span class="seta">›</span>
+            </div>
+
+            <div class="botaoTema" onclick="mudarTema('escuro')">
+                <img src="./IMG/./config.img/lua.png" alt="sol">
+                <span>Modo Escuro</span>
+                <span class="seta">›</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="./JS/config.js"></script>
+
+</body>
+</html>
