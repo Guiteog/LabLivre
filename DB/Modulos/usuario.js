@@ -44,8 +44,8 @@ function creatTable(db, callback) {
                     VALUES
                         ('887.986.528-50', 'Guilherme Teodoro', 'guilherme.t.gomes7@aluno.senai.br', 'PROF'),
                         ('358.741.728-82', 'Giovana Lobo', 'giovana.l.santos6@aluno.senai.br', 'TEC'),
-                        ('723.557.388-07', 'Murillo Alves', 'carlos@lablivre.com', 'PROF'),
-                        ('176.979.388-71', 'Gabriela Meri', 'ana@lablivre.com', 'TEC');
+                        ('723.557.388-07', 'Murillo Alves', 'murillo.a.reis@aluno.senai.br', 'PROF'),
+                        ('176.979.388-71', 'Gabriela Meri', 'gabriela.giacomini@aluno.senai.br', 'TEC');
                 `;
 
                 db.run(dadosUser,(err)=>{
