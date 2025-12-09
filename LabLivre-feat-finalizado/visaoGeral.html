@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda SENAI</title>
+    <link rel="stylesheet" href="./CSS/visaoGeral.css">
+</head>
+<body>
+
+<div class="container">
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+        <section id="agenda" class="agenda"></section>
+    </main>
+
+    <!-- BOTÃO DE ADICIONAR -->
+    <button class="add-btn" onclick="openForm()">+</button>
+
+</div>
+
+<!-- MODAL PARA ADICIONAR EVENTO -->
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Novo Evento</h2>
+
+        <form onsubmit="addEvent(event)">
+            <input type="text" id="titulo" placeholder="Título" required>
+            <input type="text" id="local" placeholder="Local" required>
+            <input type="text" id="professor" placeholder="Professor" required>
+            <input type="date" id="data" required>
+            <input type="text" id="hora" placeholder="10h às 12h" required>
+
+            <div class="modal-actions">
+                <button type="button" onclick="closeForm()">Cancelar</button>
+                <button type="submit">Adicionar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="./JS/visaoGeral.js"></script>
+</body>
+</html>

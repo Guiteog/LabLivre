@@ -1,0 +1,47 @@
+body {
+    background: #fff;
+    color: #222;
+    font-family: Arial, sans-serif;
+    transition: .3s;
+}
+
+body.daltonismo {
+    background: #000;
+    color: #e5d28a;
+}
+
+.logo {
+    width: 120px;
+    margin: 20px auto;
+    display: block;
+}
+
+.container {
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #b3b3ff;
+    border: 1px solid #777;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+body.daltonismo button {
+    background: #d5bd63;
+    color: #000;
+}
+
+.icon {
+    font-size: 18px;
+}
+
+.arrow {
+    margin-left: auto;
+}
