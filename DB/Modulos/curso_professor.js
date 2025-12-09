@@ -54,7 +54,7 @@ function creatTable(db, callback) {
 }
 
 function getCurso(db,cpf,callback){
-    const sql = `SELECT * FROM Curso_e_Professor WHERE cpf = ?`;
+    const sql = `SELECT * FROM Curso_e_Professor WHERE cpf_Professor = ?`;
     db.all(sql,[cpf],callback);
 }
 

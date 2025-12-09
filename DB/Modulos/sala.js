@@ -46,9 +46,9 @@ function creatTable(db, callback){
 
 /* =======Listar as salas======== */
 
-function listarSala(){
+function listarSala(db,callback){
     const sql = `
-        SELECT id_sala, nome_sala FROM Sala ORDER BY NAME
+        SELECT idSala, nomeSala FROM Sala ORDER BY nomeSala
     `
     db.all(sql, [], callback)
 }

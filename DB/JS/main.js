@@ -324,10 +324,10 @@ app.post('/reserva',(req,res) =>{
         }
 
         console.log("✅ Reserva cadastrada com sucesso:", reservaDados);
-            return res.status(201).json({
-                status: true,
-                message: "Reserva cadastrada com sucesso!"
-            })
+        return res.status(201).json({
+            status: true,
+            message: "Reserva cadastrada com sucesso!"
+        })
 
         })
 
@@ -335,4 +335,42 @@ app.post('/reserva',(req,res) =>{
     })
 
     
+})
+
+//=======Dados do Modal da Reserva========//
+//Esses dados só serão mandados para o client 
+//Quando clicar para fazer a reserva
+
+app.get('/dadosReserva',(req,res) =>{
+
+    const{cpf} = req.query
+    salasDB.listarSala(db,(err,rows)=>{
+        if(err){
+            console.error("❌ Erro SQL ao verificar os dados das Sala:", err.message);
+            return res.status(500).json({ 
+                status: false, 
+                message: "Erro interno do servidor ao verificar a disponibilidade." 
+            });
+        }
+
+        const salas = rows;
+        cursoProfessor.getCurso(db,cpf,(err,rows)=>{
+            if(err){
+                console.error("❌ Erro SQL ao verificar os dados dos cursos:", err.message);
+                return res.status(500).json({ 
+                    status: false, 
+                    message: "Erro interno do servidor ao verificar a disponibilidade." 
+                });
+            }
+
+            const cursos = rows;
+
+            console.log("✅ Dados para o modal de reserva coletados com sucesso.");
+            return res.status(200).json({
+                status: true,
+                salas:salas,
+                cursos:cursos
+            })
+        })
+    })
 })
