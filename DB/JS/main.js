@@ -290,7 +290,7 @@ app.get('/cursoFiltro',(req,res) =>{
 //======Cadastro De Reserva======//
 app.post('/reserva',(req,res) =>{
     const reservaDados = req.body;
-    if(!reservaDados || !reservaDados.cpf || !reservaDados.id_sala || !reservaDados.data_reserva || !reservaDados.horario_inicio){
+    if(!reservaDados || !reservaDados.idCPF || !reservaDados.idSala || !reservaDados.dia || !reservaDados.turnoStart){
         return res.status(401).json({
             status:false,
             message:"Dado nulo"

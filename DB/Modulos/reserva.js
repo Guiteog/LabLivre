@@ -48,7 +48,7 @@ function insertReserva(db, reservaDados, callback){
 function getAll(db, callback){
     const sql = `
         SELECT * FROM Reserva
-        ORDER BY dia ASC
+        ORDER BY dia ASC, turnoStart ASC
     `
     db.all(sql, callback);
 }
@@ -60,7 +60,7 @@ function activeReserva(db, callback) {
     const sql = `
         SELECT * FROM Reserva
         WHERE dataFimCompleta > ?
-        ORDER BY dataInicio ASC
+        ORDER BY dia ASC, turnoStart ASC
     `;
     db.all(sql, [now], callback);
 }
@@ -82,7 +82,7 @@ function reservaCursos(db, nomeCurso, callback){
     const sql = `
         SELECT * FROM Reserva 
         WHERE idCurso = ? AND dataFimCompleta > ?
-        ORDER BY dataInicio ASC
+        ORDER BY dia ASC, turnoStart ASC
     `;
 
     db.all(sql,[nomeCurso,now], callback);
